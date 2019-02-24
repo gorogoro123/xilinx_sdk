@@ -1,0 +1,20 @@
+CONFIG_H := ../src/config.h
+PREBUILD_TCL := ../prebuild.tcl
+#PRINT_VAL := print_val
+
+$(CONFIG_H): $(C_SRCS) $(PREBUILD_TCL) $(PRINT_VAL)
+	tclsh $(PREBUILD_TCL)
+
+.PHONY: print_val
+print_val:
+	@echo "LD_SRCS     " $(LD_SRCS)
+	@echo "OBJ_SRCS    " $(OBJ_SRCS)
+	@echo "S_SRCS      " $(S_SRCS)
+	@echo "C_SRCS      " $(C_SRCS)
+	@echo "S_UPPER_SRCS" $(S_UPPER_SRCS)
+	@echo "O_SRCS      " $(O_SRCS)
+	@echo "EXECUTABLES " $(EXECUTABLES)
+	@echo "OBJS        " $(OBJS)
+	@echo "S_UPPER_DEPS" $(S_UPPER_DEPS)
+	@echo "C_DEPS      " $(C_DEPS)
+	@echo "ELFSIZE     " $(ELFSIZE)
