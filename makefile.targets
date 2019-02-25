@@ -5,6 +5,9 @@ PREBUILD_TCL := ../prebuild.tcl
 $(CONFIG_H): $(C_SRCS) $(PREBUILD_TCL) $(PRINT_VAL)
 	tclsh $(PREBUILD_TCL)
 
+all: $(CONFIG_H) pre-build main-build
+	@echo 'all:'
+
 .PHONY: print_val
 print_val:
 	@echo "LD_SRCS     " $(LD_SRCS)
